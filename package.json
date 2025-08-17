@@ -1,8 +1,0 @@
-{
-  "name": "debat-didaktik-monorepo",
-  "version": "1.0.0",
-  "scripts": {
-    "vercel-build": "pip install -r api/requirements.txt && python api/manage.py collectstatic --noinput && python api/manage.py migrate && cd frontend && npm install && npm run build"
-  },
-  "dependencies": {}
-}
