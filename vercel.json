@@ -3,7 +3,9 @@
   "builds": [
     {
       "use": "@vercel/python",
-      "config": { "maxLambdaSize": "15mb" }
+      "config": { "maxLambdaSize": "15mb" },
+      "outputDirectory": "dist"
+      
     },
     {
       "src": "frontend/package.json",
@@ -23,8 +25,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "frontend/dist/index.html",
-      "outputDirectory": "dist"
+      "dest": "frontend/dist/index.html"
     }
   ]
 }
