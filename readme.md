@@ -28,23 +28,22 @@ Proyek ini dikembangkan sebagai tugas Capstone Project untuk program Student Dev
 - Tumpukan Teknologi (Tech Stack)
 Aplikasi ini dibangun dengan arsitektur client-server modern yang memisahkan backend dan frontend.
 
-Kategori
 
-Teknologi
+# Teknologi 
 
-Backend
+- Backend
 
 Django, Django REST Framework, Python
 
-Frontend
+- Frontend
 
 React, Vite, JavaScript, Tailwind CSS, Headless UI, React Hot Toast
 
-Database
+- Database
 
 PostgreSQL (Produksi via Neon), SQLite (Pengembangan)
 
-Deployment
+- Deployment
 
 Railway (Backend & Database), Vercel (Frontend)
 
