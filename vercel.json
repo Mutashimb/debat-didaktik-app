@@ -1,6 +1,18 @@
 {
   "version": 2,
-  
+  "builds": [
+    {
+      "use": "@vercel/python",
+      "config": { "maxLambdaSize": "15mb" }
+    },
+    {
+      "src": "frontend/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "frontend/dist"
+      }
+    }
+  ],
   "routes": [
     {
       "src": "/api/(.*)",
