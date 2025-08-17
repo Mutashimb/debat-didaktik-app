@@ -2,19 +2,9 @@
   "version": 2,
   "builds": [
     {
-      "src": "frontend/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "frontend/dist"
-      }
-    },
-    {
-      "src": "build.sh",
-      "use": "@vercel/build-utils/bash@latest"
-    },
-    {
       "src": "api/config/wsgi.py",
-      "use": "@vercel/python"
+      "use": "@vercel/python",
+      "config": { "maxLambdaSize": "15mb" }
     }
   ],
   "routes": [
@@ -27,11 +17,8 @@
       "dest": "api/config/wsgi.py"
     },
     {
-      "handle": "filesystem"
-    },
-    {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "dest": "/frontend/dist/$1"
     }
   ]
 }
