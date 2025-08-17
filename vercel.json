@@ -4,8 +4,7 @@
     {
       "src": "api/config/wsgi.py",
       "use": "@vercel/python",
-      "config": { "maxLambdaSize": "15mb" },
-      "vercel-build": "pip install -r api/requirements.txt && python api/manage.py collectstatic --noinput && python api/manage.py migrate && cd frontend && npm install && npm run build"
+      "config": { "maxLambdaSize": "15mb" }
     },
     {
       "src": "frontend/package.json",
