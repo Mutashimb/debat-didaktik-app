@@ -29,10 +29,11 @@ class TaggedFallacyDetailSerializer(serializers.ModelSerializer):
     fallacy_name = serializers.CharField(source='fallacy.name')
     fallacy_description = serializers.CharField(source='fallacy.description')
     tagged_by = serializers.CharField(source='tagged_by.username')
+    justification = serializers.CharField()
 
     class Meta:
         model = TaggedFallacy
-        fields = ['fallacy_name', 'fallacy_description', 'tagged_by']
+        fields = ['fallacy_name', 'fallacy_description', 'tagged_by', 'justification']
 
 
 class ArgumenSerializer(serializers.ModelSerializer):
@@ -91,5 +92,5 @@ class TaggedFallacySerializer(serializers.ModelSerializer):
     class Meta:
         model = TaggedFallacy
         # Saat menandai, user hanya perlu mengirim ID argumen dan ID falasi
-        fields = ['id', 'argument', 'fallacy']
+        fields = ['id', 'argument', 'fallacy', 'justification']
 

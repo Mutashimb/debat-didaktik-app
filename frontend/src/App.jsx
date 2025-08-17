@@ -9,6 +9,7 @@ import { Toaster } from 'react-hot-toast';
 import RegisterPage from './pages/RegisterPage'; // <-- Import
 import LoginPage from './pages/LoginPage';       // <-- Import
 import CreateMosiPage from './pages/CreateMosiPage'; // <-- Import
+import ProfilePage from './pages/ProfilePage';
 import './App.css';
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Route path="/register" element={<RegisterPage />} /> {/* <-- Tambahkan ini */}
         <Route path="/login" element={<LoginPage />} />       {/* <-- Tambahkan ini */}
         <Route path="mosi/new" element={<CreateMosiPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
       </Routes>
       </main>
     </div>

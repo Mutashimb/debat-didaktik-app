@@ -8,6 +8,7 @@ import toast from 'react-hot-toast';
 export default function TagFallacyModal({ isOpen, onClose, argumentId, onTagSuccess }) {
   const [fallacies, setFallacies] = useState([]);
   const [selectedFallacy, setSelectedFallacy] = useState('');
+  const [justification, setJustification] = useState('');
   const [loading, setLoading] = useState(false); // Tambahkan state loading
   const { token } = useAuth();
 
@@ -40,7 +41,7 @@ export default function TagFallacyModal({ isOpen, onClose, argumentId, onTagSucc
     
     const toastId = toast.loading("Menandai falasi...");
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/tag-fallacy/', {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/tag-fallacy/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -49,6 +50,7 @@ export default function TagFallacyModal({ isOpen, onClose, argumentId, onTagSucc
         body: JSON.stringify({
           argument: argumentId,
           fallacy: selectedFallacy,
+          justification: justification,
         }),
       });
       if (!response.ok) {
@@ -58,6 +60,7 @@ export default function TagFallacyModal({ isOpen, onClose, argumentId, onTagSucc
         throw new Error(errorMessage || "Gagal menandai falasi.");}
       
       toast.success("Argumen berhasil ditandai!", { id: toastId });
+      setJustification('');
       onTagSuccess();
       onClose();
     } catch (error) {
@@ -78,6 +81,7 @@ export default function TagFallacyModal({ isOpen, onClose, argumentId, onTagSucc
           {loading ? (
             <div className="text-center p-4">Memuat falasi...</div>
           ) : (
+          <>
             <select 
               value={selectedFallacy} 
               onChange={e => setSelectedFallacy(e.target.value)}
@@ -90,6 +94,14 @@ export default function TagFallacyModal({ isOpen, onClose, argumentId, onTagSucc
                 </option>
               ))}
             </select>
+            <textarea
+                placeholder="Berikan penjelasan singkat mengapa Anda memilih falasi ini... (opsional)"
+                value={justification}
+                onChange={e => setJustification(e.target.value)}
+                rows="3"
+                className="w-full p-3 bg-gray-800 text-secondary rounded-md border border-gray-700 focus:outline-none focus:ring-2 focus:ring-accent mb-6"
+              ></textarea>
+            </>
           )}
 
           <div className="flex justify-end gap-4">

@@ -5,7 +5,6 @@ from rest_framework import viewsets, permissions, status, generics
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.views import APIView
-
 from .models import Mosi, Debat, Argumen
 from .serializers import (
     MosiSerializer,
@@ -13,9 +12,9 @@ from .serializers import (
     DebatDetailSerializer,
     ArgumenSerializer,
     UserSerializer,
-    CurrentUserSerializer # <-- Pastikan ini ada
+    CurrentUserSerializer
 )
-
+from django.db.models import Q 
 from .models import Fallacy, TaggedFallacy # <-- Import model baru
 from .serializers import FallacySerializer, TaggedFallacySerializer # <-- Import serializer baru
 
@@ -109,6 +108,18 @@ class ArgumenViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         # Otomatis set 'pengguna' ke user yang sedang login
         serializer.save(pengguna=self.request.user)
+        # Simpan argumen baru dan hubungkan dengan user yang sedang login
+        argument = serializer.save(pengguna=self.request.user)
+        # Ambil debat yang terkait dengan argumen ini
+        debat = argument.debat
+        # Hitung jumlah total argumen yang sudah ada untuk debat ini
+        total_arguments = debat.argumen_set.count()
+        # Tentukan batas argumen (ronde * 2)
+        argument_limit = debat.max_rounds * 2
+        # Jika jumlah argumen sudah mencapai batas, selesaikan debat
+        if total_arguments >= argument_limit:
+            debat.status = 'SELESAI'
+            debat.save()
 
 
 class RegisterView(generics.CreateAPIView):
@@ -146,3 +157,21 @@ class TagFallacyView(generics.CreateAPIView):
     def perform_create(self, serializer):
         # Otomatis isi field 'tagged_by' dengan user yang sedang login
         serializer.save(tagged_by=self.request.user)
+
+
+class MyDebatesView(generics.ListAPIView):
+    """
+    API endpoint untuk melihat daftar debat yang diikuti oleh pengguna saat ini.
+    """
+    serializer_class = DebatSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        """
+        Override metode ini untuk memfilter debat berdasarkan pengguna yang login.
+        """
+        user = self.request.user
+        # Kembalikan semua debat di mana pengguna adalah PRO atau KONTRA
+        return Debat.objects.filter(
+            Q(pengguna_pro=user) | Q(pengguna_kontra=user)
+        ).distinct().order_by('-dibuat_pada')

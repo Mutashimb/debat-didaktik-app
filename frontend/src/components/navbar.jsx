@@ -29,7 +29,9 @@ function Navbar() {
           <div className="space-x-6 flex items-center">
             {token && user ? (
               <>
-                <span className="text-secondary">{user.username}</span> 
+                <Link to="/profile" className="text-secondary hover:text-white transition-colors">
+                  {user.username}
+                </Link>
                 {/* 3. Tombol logout sekarang membuka modal */}
                 <button 
                   onClick={() => setLogoutModalOpen(true)} 

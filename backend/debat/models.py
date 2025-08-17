@@ -34,8 +34,12 @@ class Debat(models.Model):
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='MENUNGGU')
     dibuat_pada = models.DateTimeField(auto_now_add=True)
 
+    # 2 ronde berarti 4 argumen total (2 dari PRO, 2 dari KONTRA)
+    max_rounds = models.PositiveIntegerField(default=2) 
+
     def __str__(self):
         return f"Debat tentang: {self.mosi.judul}"
+    
 
 # Model untuk setiap Argumen yang dikirim
 class Argumen(models.Model):
@@ -62,7 +66,8 @@ class TaggedFallacy(models.Model):
     fallacy = models.ForeignKey(Fallacy, on_delete=models.CASCADE)
     tagged_by = models.ForeignKey(User, on_delete=models.CASCADE)
     tagged_at = models.DateTimeField(auto_now_add=True)
-
+    justification = models.TextField(blank=True, null=True)
+    
     class Meta:
         # Pastikan satu user tidak bisa menandai argumen yang sama dengan falasi yang sama lebih dari sekali
         unique_together = ('argument', 'fallacy', 'tagged_by')

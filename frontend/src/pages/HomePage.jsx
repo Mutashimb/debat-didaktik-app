@@ -15,7 +15,7 @@ function HomePage() {
     // Logika pengambilan data tetap sama
     async function fetchMosi() {
       try {
-        const response = await fetch('http://127.0.0.1:8000/api/mosi/');
+        const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/mosi/`);
         const data = await response.json();
         setMosiList(data);
       } catch (error) {

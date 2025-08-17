@@ -43,7 +43,16 @@ function ArgumentCard({ argument, isProSide, onTagClick }) {
                 </span>
                 <div className="absolute bottom-full mb-2 w-72 p-3 bg-primary border border-gray-600 rounded-lg shadow-lg text-sm text-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                   <h5 className="font-bold text-accent">{tag.fallacy_name}</h5>
-                  <p>{tag.fallacy_description}</p>
+                  <p className="italic text-gray-400 mb-2">"{tag.fallacy_description}"</p>
+                  {/* Tampilkan justifikasi jika ada */}
+                  {/* Tampilkan justifikasi jika ada */}
+                  {tag.justification && (
+                    <>
+                      <hr className="border-gray-600 my-1" />
+                      <p className="font-semibold mt-2">Justifikasi:</p>
+                      <p>{tag.justification}</p>
+                    </>
+                  )}
                 </div>
               </div>              
             ))}

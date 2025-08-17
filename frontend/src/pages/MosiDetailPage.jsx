@@ -21,8 +21,8 @@ function MosiDetailPage() {
     async function fetchData() {
       try {
         const [mosiResponse, debatResponse] = await Promise.all([
-          fetch(`http://127.0.0.1:8000/api/mosi/${id}/`),
-          fetch('http://127.0.0.1:8000/api/debat/')
+          fetch(`${import.meta.env.VITE_API_BASE_URL}/api/mosi/${id}/`),
+          fetch(`${import.meta.env.VITE_API_BASE_URL}/api/debat/`)
         ]);
         const mosiData = await mosiResponse.json();
         const debatData = await debatResponse.json();

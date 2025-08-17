@@ -63,7 +63,7 @@ function DebateDetailPage() {
     e.preventDefault();
     const toastId = toast.loading("Mengirim argumen...");
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/argumen/', {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/argumen/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -134,11 +134,19 @@ function DebateDetailPage() {
         </div>
       </div>
 
-      {canJoin && (
+      {canJoin && debat.status !== 'SELESAI' && (
         <div className="text-center mb-8">
           <button onClick={handleJoinDebate} className="bg-accent text-primary font-bold py-3 px-8 rounded-full text-lg hover:bg-yellow-400 transition-all duration-300 transform hover:scale-105 shadow-lg">
             🤝 Gabung Debat sebagai KONTRA
           </button>
+        </div>
+      )}
+
+      {/* Tampilkan pesan jika debat sudah selesai */}
+      {debat.status === 'SELESAI' && (
+        <div className="text-center mb-8 p-4 bg-green-900/50 border border-green-700 rounded-lg">
+          <p className="font-bold text-green-300">Debat ini telah selesai.</p>
+          <p className="font-regular text-green-300">Teruslah berlatih dan tingkatkan kemampuan Critical Thinking anda!</p>
         </div>
       )}
       

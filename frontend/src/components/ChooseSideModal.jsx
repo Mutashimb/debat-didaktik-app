@@ -14,7 +14,7 @@ export default function ChooseSideModal({ isOpen, onClose, mosiId, existingDebat
   const waitingDebates = existingDebates.filter(debat => debat.status === 'MENUNGGU');
 
   const handleCreateDebateAsPro = () => {
-    const promise = fetch('http://127.0.0.1:8000/api/debat/', {
+    const promise = fetch(`${import.meta.env.VITE_API_BASE_URL}/api/debat/`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Authorization': `Token ${token}` },
       body: JSON.stringify({ mosi_id: mosiId }),

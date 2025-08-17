@@ -8,7 +8,7 @@ from .views import MosiViewSet, DebatViewSet, ArgumenViewSet, RegisterView # Tam
 from rest_framework.authtoken.views import obtain_auth_token
 from .views import  UserDetailView # <-- Import view baru
 from .views import FallacyListView, TagFallacyView # <-- Import view baru
-
+from .views import MyDebatesView # <-- Import view baru
 
 
 
@@ -17,6 +17,7 @@ router = DefaultRouter()
 router.register(r'mosi', MosiViewSet)
 router.register(r'debat', DebatViewSet)
 router.register(r'argumen', ArgumenViewSet) # <-- TAMBAHKAN BARIS INI
+
 
 
 
@@ -29,4 +30,5 @@ urlpatterns = [
     path('fallacies/', FallacyListView.as_view(), name='fallacy-list'), # URL untuk daftar fallacy
     path('tag-fallacy/', TagFallacyView.as_view(), name='tag-fallacy'), # URL untuk menandai fallacy
     path('create-mosi/', MosiViewSet.as_view({'post': 'create'}), name='create-mosi'), # URL untuk membuat mosi baru
+    path('my-debates/', MyDebatesView.as_view(), name='my-debates'), 
 ]
