@@ -29,7 +29,7 @@ DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
 
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
 CSRF_TRUSTED_ORIGINS = os.environ.get('CSRF_TRUSTED_ORIGINS', '127.0.0.1,localhost').split(',')
-CORS_ALLOWED_ORIGINS = os.environ.get('CORS_ALLOWED_ORIGINS', '127.0.0.1,localhost').split(',')
+CORS_ALLOWED_ORIGIN = os.environ.get('CORS_ALLOWED_ORIGINS', '127.0.0.1,localhost').split(',')
 
 
 
