@@ -17,7 +17,7 @@ function CreateMosiPage() {
     const toastId = toast.loading('Membuat mosi baru...');
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/mosi/`, {
+      const response = await fetch('/api/mosi/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
