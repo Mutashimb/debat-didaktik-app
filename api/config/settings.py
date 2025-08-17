@@ -29,6 +29,7 @@ DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
 
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
 CSRF_TRUSTED_ORIGINS = ['https://debat-didaktik-app-production.up.railway.app']
+CORS_ALLOWED_ORIGIN = ['https://debat-didaktik-app-x421.vercel.app']
 
 
 
@@ -122,7 +123,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
-
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
