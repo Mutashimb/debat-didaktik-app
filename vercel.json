@@ -3,8 +3,7 @@
   "builds": [
     {
       "use": "@vercel/python",
-      "config": { "maxLambdaSize": "15mb" },
-      "outputDirectory": "dist"
+      "config": { "maxLambdaSize": "15mb" }
       
     },
     {
