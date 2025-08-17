@@ -28,6 +28,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'kunci-rahasia-default-anda-untuk-peng
 DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
 
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
+CSRF_TRUSTED_ORIGINS = ['https://debat-didaktik-app-production.up.railway.app']
+
 
 
 # Application definition
