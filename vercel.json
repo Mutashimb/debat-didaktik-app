@@ -11,6 +11,7 @@
       "use": "@vercel/static-build"
     }
   ],
+   "buildCommand": "pip install -r api/requirements.txt && cd frontend && npm run build",
   "routes": [
     {
       "src": "/api/staticfiles/(.*)",
