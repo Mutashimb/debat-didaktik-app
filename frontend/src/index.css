@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Tambahkan ini untuk mengatur gaya default seluruh aplikasi */
+html {
+  @apply scroll-smooth;
+}
+
+body {
+  @apply bg-primary text-secondary;
+  @apply bg-gradient-to-b from-primary to-gray-900/80;
+}
