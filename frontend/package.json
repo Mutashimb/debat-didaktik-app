@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --output frontend", 
+    "build": "vite build", 
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "tailwind:init": "node node_modules/tailwindcss/cli.js init -p"
