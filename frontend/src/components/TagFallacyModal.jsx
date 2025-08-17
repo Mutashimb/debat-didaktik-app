@@ -19,7 +19,7 @@ export default function TagFallacyModal({ isOpen, onClose, argumentId, onTagSucc
       setLoading(true);
       async function fetchFallacies() {
         try {
-          const response = await fetch('http://127.0.0.1:8000/api/fallacies/');
+          const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/fallacies/`);
           const data = await response.json();
           setFallacies(data);
         } catch (error) {
