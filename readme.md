@@ -54,10 +54,30 @@ Frontend (React) bertindak sebagai "wajah". Ia bertanggung jawab untuk menampilk
 
 Komunikasi: Frontend "berbicara" dengan Backend menggunakan permintaan fetch ke API. Misalnya, saat halaman profil dimuat, frontend akan meminta data ke /api/my-debates/, dan backend akan merespons dengan data debat milik pengguna tersebut dalam format JSON.
 
-Menjalankan Proyek Secara Lokal
+# Potensi pengembangan aplikasi
+- Penambahan fitur Tagged Fallacy Acumulated
+Setiap user yang sudah login dapat memberikan reaksi setuju atau tidak setuju terhadap tagged falacy yang sudah dibuat, atau memberikan tambahan penjelasan kenapa penandaan falasi tersebut masuk akal.
+
+- Penambahan fitur thumbs up and down
+user yang sudah login dapat memberikan thumbs up sebagai representasi bahwa dia setuju dengan argumen yang di ajukan, atau memberikan thumbs down untuk tidak setuju. Fitur ini dapat memberikan keseruan dalam debat.
+
+- Penambahan fitur Voice Recording
+Fitur ini memberikan user keluasan untuk mengutarakan argumennya menggunakan suara
+
+- Penambahan fitur mode live debat
+Fitur ini memungkinkan user untuk membuat debat dengan jangka waktu tertentu untuk melatih kecepatan berfikir.
+
+- Mode Team Up
+Mode ini memungkinkan user untuk dapat join sebagai tim PRO maupun KONTRA.
+
+- Mode Actual British Parlimentary 
+Debat dengan format parlemen inggris dengan 2 user sebagai tim pemerintah, dan 2 user sebagai tim oposisi. Peraturan yang lebih ketat, hingga pengajuan argumen harus menggunakan voice recording. 
+
+
+# Menjalankan Proyek Secara Lokal
 Untuk menjalankan salinan proyek ini di komputer Anda, ikuti langkah-langkah berikut:
 
-# Prasyarat:
+- Prasyarat:
 
 Python 3.10+
 
@@ -70,48 +90,47 @@ git clone https://github.com/Mutashimb/debat-didaktik-app.git
 cd debat-didaktik-app
 
 2. Setup Backend
-# Arahkan ke folder api
+-  Arahkan ke folder api
 cd api
 
-# Buat dan aktifkan virtual environment
+- Buat dan aktifkan virtual environment
 python -m venv venv
 .\venv\Scripts\activate
-# source venv/bin/activate # Untuk MacOS/Linux
 
-# Instal dependensi Python
+- Instal dependensi Python
 pip install -r requirements.txt
 
-# Buat database lokal
+- Buat database lokal
 python manage.py makemigrations
 python manage.py migrate
 
-# Buat akun superuser
+- Buat akun superuser
 python manage.py createsuperuser
 
 3. Setup Frontend
-# Dari folder utama, arahkan ke folder frontend
+- Dari folder utama, arahkan ke folder frontend
 cd ../frontend
 
-# Instal dependensi JavaScript
+- Instal dependensi JavaScript
 npm install
 
 4. Jalankan Aplikasi
 Terminal 1 (Backend):
 
-# Di dalam folder api dengan venv aktif
+- Di dalam folder api dengan venv aktif
 python manage.py runserver
 
 Terminal 2 (Frontend):
 
-# Di dalam folder frontend
+- Di dalam folder frontend
 npm run dev
 
 Buka http://localhost:5173/ di browser Anda.
 
-Kolaborasi dengan AI
+# Kolaborasi dengan AI
 Proyek ini dikembangkan dengan metode pair programming bersama AI. AI digunakan secara ekstensif untuk:
 
-Generasi Kode: Membuat boilerplate untuk model, serializer, view, dan komponen React.
+Generate Code: Membuat boilerplate untuk model, serializer, view, dan komponen React.
 
 Debugging: Menganalisis pesan error dari terminal dan console untuk menemukan akar masalah dengan cepat.
 
