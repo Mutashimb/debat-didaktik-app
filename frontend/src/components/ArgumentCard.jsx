@@ -26,13 +26,13 @@ function ArgumentCard({ argument, isProSide, onTagClick }) {
 
         <div className={`mt-2 ${textAlign}`}>
           <h4 className="font-bold text-accent">Klaim:</h4>
-          <p className="text-secondary">{argument.klaim}</p>
+          <p className="text-secondary text-justify">{argument.klaim}</p>
           
           <h4 className="font-bold text-accent mt-3">Bukti:</h4>
-          <p className="text-secondary">{argument.bukti}</p>
+          <p className="text-secondary text-justify">{argument.bukti}</p>
 
           <h4 className="font-bold text-accent mt-3">Jaminan:</h4>
-          <p className="text-secondary">{argument.jaminan}</p>
+          <p className="text-secondary text-justify">{argument.jaminan}</p>
           <div className={`mt-4 pt-3 border-t border-gray-600 flex justify-between items-center`}>
 
           <div>

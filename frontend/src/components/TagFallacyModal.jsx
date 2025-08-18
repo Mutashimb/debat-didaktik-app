@@ -95,7 +95,8 @@ export default function TagFallacyModal({ isOpen, onClose, argumentId, onTagSucc
               ))}
             </select>
             <textarea
-                placeholder="Berikan penjelasan singkat mengapa Anda memilih falasi ini... (opsional)"
+                required
+                placeholder="Berikan penjelasan singkat mengapa Anda memilih falasi ini..."
                 value={justification}
                 onChange={e => setJustification(e.target.value)}
                 rows="3"

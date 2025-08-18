@@ -5,7 +5,7 @@ Debat Didaktik adalah aplikasi web full-stack yang dirancang sebagai "gym untuk 
 Proyek ini dikembangkan sebagai tugas Capstone Project untuk program Student Development Initiative IBM X Hacktiv8.
 
 # Fitur Utama
-- Sistem Autentikasi Penuh: Pengguna dapat mendaftar, login, dan logout dengan aman menggunakan sistem otentikasi berbasis Token.
+- Sistem Autentikasi: Pengguna dapat mendaftar, login, dan logout dengan aman menggunakan sistem otentikasi berbasis Token.
 
 - Hak Akses Berbasis Peran: Pengguna dengan status "Staf" memiliki hak istimewa untuk membuat dan mengelola konten mosi (topik debat).
 
@@ -15,7 +15,7 @@ Proyek ini dikembangkan sebagai tugas Capstone Project untuk program Student Dev
 
 - Sistem Giliran (Turn-based System): Aturan yang jelas memastikan alur debat yang adil, di mana partisipan harus menunggu giliran mereka untuk mengirim argumen.
 
-- Mekanisme Selesai Debat: Debat secara otomatis berakhir setelah mencapai batas ronde yang telah ditentukan, memberikan kesimpulan yang jelas.
+- Mekanisme Selesai Debat: Debat secara otomatis berakhir setelah mencapai batas ronde, 2 ronde (Berdasarkan format debat British Parliamentary)
 
 - Kerangka Argumen Terstruktur: Setiap argumen harus disampaikan dalam format Klaim, Bukti, dan Jaminan, mendorong pengguna untuk berpikir secara sistematis.
 
@@ -26,7 +26,7 @@ Proyek ini dikembangkan sebagai tugas Capstone Project untuk program Student Dev
 - Desain Modern & Responsif: Dibangun dengan Tailwind CSS, aplikasi ini memiliki antarmuka yang gelap, modern, dan sepenuhnya responsif untuk pengalaman pengguna yang optimal di semua perangkat.
 
 - Tumpukan Teknologi (Tech Stack)
-Aplikasi ini dibangun dengan arsitektur client-server modern yang memisahkan backend dan frontend.
+Aplikasi ini dibangun dengan arsitektur client-server yang memisahkan backend dan frontend.
 
 
 # Teknologi 
@@ -120,3 +120,4 @@ Refactoring & Best Practices: Memberikan saran untuk menyempurnakan kode, sepert
 Dokumentasi: Membantu menulis dan merapikan dokumentasi seperti file README ini.
 
 Terima kasih telah mengunjungi repositori ini!
+
