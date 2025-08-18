@@ -1,4 +1,4 @@
-Debat Didaktik
+## Debat Didaktik
 Sebuah Platform Latihan Argumen Berbasis Web untuk Mengasah Kemampuan Berpikir Kritis.
 Debat Didaktik adalah aplikasi web full-stack yang dirancang sebagai "gym untuk otak". Platform ini menyediakan lingkungan yang terstruktur bagi pengguna untuk berlatih membangun argumen yang logis, mengidentifikasi kesesatan berpikir (logical fallacies), dan berpartisipasi dalam debat asinkron berbasis giliran.
 
