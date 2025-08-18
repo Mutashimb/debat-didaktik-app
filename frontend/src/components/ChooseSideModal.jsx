@@ -84,7 +84,7 @@ export default function ChooseSideModal({ isOpen, onClose, mosiId, existingDebat
               <h3 className="text-xl font-bold text-red-400 mb-2 text-center">Ambil Sisi KONTRA</h3>
               {waitingDebates.length > 0 ? (
                 <div className="space-y-2 flex-grow">
-                  <p className="text-secondary text-sm mb-2 text-center">Bergabunglah ke debat yang sedang menunggu lawan:</p>
+                  <p className="text-secondary text-sm mb-2 text-center">Bergabung ke debat yang sedang menunggu lawan:</p>
                   {waitingDebates.map(debat => (
                     <button 
                       key={debat.id}
