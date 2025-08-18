@@ -72,7 +72,7 @@ function ProfilePage() {
             {completedDebates.map(debat => <DebateListItem key={debat.id} debat={debat} currentUser={user} />)}
           </div>
         ) : (
-          <p className="text-secondary">Anda belum menyelesaikan debat apa pun.</p>
+          <p className="text-secondary">Anda belum menyelesaikan debat apa pun</p>
         )}
       </div>
     </div>
