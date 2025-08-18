@@ -23,7 +23,7 @@ export function AuthProvider({ children }) {
     setLoading(true);
     const fetchUser = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:8000/api/user/', {
+        const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/user/`, {
           headers: { 'Authorization': `Token ${token}` }
         });
         if (!response.ok) throw new Error("Token tidak valid, silakan login kembali.");

@@ -22,7 +22,7 @@ function DebateDetailPage() {
 
   const fetchDebateDetail = useCallback(async () => {
     try {
-      const response = await fetch(`http://127.0.0.1:8000/api/debat/${id}/`);
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/debat/${id}/`);
       if (!response.ok) throw new Error('Debat tidak ditemukan');
       const data = await response.json();
       setDebat(data);
@@ -41,7 +41,7 @@ function DebateDetailPage() {
   const handleJoinDebate = async () => {
     const toastId = toast.loading("Bergabung ke debat...");
     try {
-      const response = await fetch(`http://127.0.0.1:8000/api/debat/${id}/join/`, {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/debat/${id}/join/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
